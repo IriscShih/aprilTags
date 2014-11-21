@@ -1,0 +1,218 @@
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.270769m, Tx=0.226038, Ty=0.145596, Tz=0.0320114, Rx=-0.786949, Ry=-0.548156, Rz=-0.28326, yaw=2.53318, pitch=0.287191, roll=2.74546
+  Id: 5 (Hamming: 0)  distance=0.281178m, Tx=0.229838, Ty=0.15897, Tz=0.0310481, Rx=-0.110092, Ry=-0.491985, Rz=0.863615, yaw=1.79094, pitch=-1.0424, roll=-2.14951
+2 tags detected:
+  Id: 0 (Hamming: 1)  distance=0.277095m, Tx=0.229422, Ty=0.151284, Tz=0.0354999, Rx=-0.79083, Ry=-0.551368, Rz=-0.265671, yaw=2.53275, pitch=0.2689, roll=2.73609
+  Id: 5 (Hamming: 0)  distance=0.275558m, Tx=0.223523, Ty=0.157608, Tz=0.0336091, Rx=-0.050771, Ry=-0.48954, Rz=0.870502, yaw=1.67414, pitch=-1.05622, roll=-2.28988
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.26961m, Tx=0.218416, Ty=0.153448, Tz=0.0379173, Rx=-0.792213, Ry=-0.559131, Rz=-0.244479, yaw=2.527, pitch=0.246982, roll=2.75695
+  Id: 5 (Hamming: 0)  distance=0.274011m, Tx=0.217193, Ty=0.162521, Tz=0.0386808, Rx=-0.0286855, Ry=-0.491964, Rz=0.870143, yaw=1.62904, pitch=-1.05549, roll=-2.32719
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.263904m, Tx=0.211876, Ty=0.152828, Tz=0.0373798, Rx=-0.783568, Ry=-0.57095, Rz=-0.245026, yaw=2.51189, pitch=0.247547, roll=2.77757
+  Id: 5 (Hamming: 0)  distance=0.274098m, Tx=0.215286, Ty=0.164883, Tz=0.0399397, Rx=-0.0208567, Ry=-0.494176, Rz=0.869111, yaw=1.61298, pitch=-1.0534, roll=-2.32222
+  Id: 4 (Hamming: 0)  distance=0.278148m, Tx=0.248454, Ty=0.12501, Tz=0.00301228, Rx=-0.0595118, Ry=0.709596, Rz=-0.702091, yaw=-1.65447, pitch=0.77833, roll=0.575729
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.262841m, Tx=0.209826, Ty=0.153811, Tz=0.0374277, Rx=-0.779288, Ry=-0.581912, Rz=-0.232568, yaw=2.50019, pitch=0.234717, roll=2.78087
+  Id: 5 (Hamming: 0)  distance=0.272307m, Tx=0.212665, Ty=0.165217, Tz=0.040348, Rx=-0.00508505, Ry=-0.490297, Rz=0.87154, yaw=1.58117, pitch=-1.05834, roll=-2.3448
+  Id: 4 (Hamming: 0)  distance=0.274748m, Tx=0.244207, Ty=0.125871, Tz=0.00250607, Rx=-0.0359439, Ry=0.700089, Rz=-0.71315, yaw=-1.62209, pitch=0.793982, roll=0.520566
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.263086m, Tx=0.208134, Ty=0.156381, Tz=0.037944, Rx=-0.775188, Ry=-0.595521, Rz=-0.210804, yaw=2.48653, pitch=0.212397, roll=2.79257
+  Id: 5 (Hamming: 0)  distance=0.276021m, Tx=0.213178, Ty=0.170308, Tz=0.0416862, Rx=-0.00219037, Ry=-0.470261, Rz=0.882525, yaw=1.57545, pitch=-1.0812, roll=-2.33549
+  Id: 4 (Hamming: 0)  distance=0.273658m, Tx=0.241095, Ty=0.129445, Tz=0.00248324, Rx=-0.0252152, Ry=0.696754, Rz=-0.716867, yaw=-1.60697, pitch=0.799298, roll=0.460897
+  11.302 fps
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.263986m, Tx=0.20802, Ty=0.157914, Tz=0.0384609, Rx=-0.772028, Ry=-0.601997, Rz=-0.203892, yaw=2.47932, pitch=0.205332, roll=2.79372
+  Id: 5 (Hamming: 0)  distance=0.276965m, Tx=0.212995, Ty=0.17191, Tz=0.0423004, Rx=0.00336242, Ry=-0.466651, Rz=0.884435, yaw=1.56359, pitch=-1.08528, roll=-2.34241
+  Id: 4 (Hamming: 0)  distance=0.273767m, Tx=0.217111, Ty=0.161684, Tz=0.0408606, Rx=-0.714919, Ry=0.597054, Rz=0.363891, yaw=-2.44579, pitch=-0.372442, roll=-1.78421
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.263628m, Tx=0.206513, Ty=0.159291, Tz=0.0384511, Rx=-0.766734, Ry=-0.610051, Rz=-0.19989, yaw=2.46951, pitch=0.201246, roll=2.79629
+  Id: 5 (Hamming: 0)  distance=0.278258m, Tx=0.21272, Ty=0.174178, Tz=0.0428923, Rx=0.0166934, Ry=-0.4647, Rz=0.885311, yaw=1.53489, pitch=-1.08716, roll=-2.35848
+  Id: 4 (Hamming: 0)  distance=0.272399m, Tx=0.214697, Ty=0.162514, Tz=0.0411772, Rx=-0.722008, Ry=0.586304, Rz=0.367358, yaw=-2.45955, pitch=-0.376167, roll=-1.77814
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.264292m, Tx=0.206741, Ty=0.160119, Tz=0.0383444, Rx=-0.762499, Ry=-0.615978, Rz=-0.197904, yaw=2.46209, pitch=0.19922, roll=2.79463
+  Id: 5 (Hamming: 0)  distance=0.279575m, Tx=0.21333, Ty=0.175545, Tz=0.042857, Rx=0.0190713, Ry=-0.465556, Rz=0.884813, yaw=1.52985, pitch=-1.08609, roll=-2.3514
+  Id: 4 (Hamming: 0)  distance=0.271295m, Tx=0.213414, Ty=0.162417, Tz=0.0409402, Rx=-0.727818, Ry=0.575833, Rz=0.372421, yaw=-2.47225, pitch=-0.381616, roll=-1.7794
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.266467m, Tx=0.207944, Ty=0.162153, Tz=0.0383428, Rx=-0.753968, Ry=-0.624792, Rz=-0.202894, yaw=2.44961, pitch=0.204313, roll=2.79338
+  Id: 5 (Hamming: 0)  distance=0.280979m, Tx=0.213924, Ty=0.177092, Tz=0.0427088, Rx=0.0291916, Ry=-0.466523, Rz=0.884027, yaw=1.50831, pitch=-1.08441, roll=-2.36307
+  Id: 4 (Hamming: 0)  distance=0.274474m, Tx=0.215497, Ty=0.164977, Tz=0.0409881, Rx=-0.734546, Ry=0.566523, Rz=0.37349, yaw=-2.48463, pitch=-0.382768, roll=-1.78065
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.267777m, Tx=0.207927, Ty=0.164301, Tz=0.0384213, Rx=-0.75185, Ry=-0.629808, Rz=-0.195099, yaw=2.4443, pitch=0.196358, roll=2.79029
+  Id: 5 (Hamming: 0)  distance=0.285153m, Tx=0.215826, Ty=0.181282, Tz=0.0432228, Rx=0.0322152, Ry=-0.461779, Rz=0.88641, yaw=1.50115, pitch=-1.08953, roll=-2.36043
+  Id: 4 (Hamming: 0)  distance=0.276402m, Tx=0.215879, Ty=0.167577, Tz=0.0413797, Rx=-0.7394, Ry=0.558496, Rz=0.375991, yaw=-2.49468, pitch=-0.385466, roll=-1.77652
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.268385m, Tx=0.207729, Ty=0.16555, Tz=0.0383701, Rx=-0.751199, Ry=-0.631173, Rz=-0.193187, yaw=2.4428, pitch=0.194409, roll=2.78997
+  Id: 5 (Hamming: 0)  distance=0.286539m, Tx=0.216142, Ty=0.183044, Tz=0.0433843, Rx=0.0367987, Ry=-0.462277, Rz=0.885972, yaw=1.49136, pitch=-1.08859, roll=-2.3684
+  Id: 4 (Hamming: 0)  distance=0.277316m, Tx=0.215924, Ty=0.168996, Tz=0.0414882, Rx=-0.740715, Ry=0.55549, Rz=0.377853, yaw=-2.49813, pitch=-0.387476, roll=-1.77474
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.271755m, Tx=0.208415, Ty=0.170112, Tz=0.0384183, Rx=-0.743499, Ry=-0.64292, Rz=-0.184018, yaw=2.42861, pitch=0.185073, roll=2.78797
+  Id: 5 (Hamming: 0)  distance=0.290177m, Tx=0.21681, Ty=0.18797, Tz=0.043165, Rx=0.0583662, Ry=-0.452413, Rz=0.889896, yaw=1.44249, pitch=-1.09712, roll=-2.40943
+  Id: 4 (Hamming: 0)  distance=0.279408m, Tx=0.215658, Ty=0.172793, Tz=0.0412649, Rx=-0.745548, Ry=0.548374, Rz=0.37874, yaw=-2.50742, pitch=-0.388434, roll=-1.76363
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.272117m, Tx=0.207405, Ty=0.171963, Tz=0.0382052, Rx=-0.744869, Ry=-0.643033, Rz=-0.177984, yaw=2.42944, pitch=0.178938, roll=2.78488
+  Id: 5 (Hamming: 0)  distance=0.292587m, Tx=0.217058, Ty=0.191367, Tz=0.0432644, Rx=0.0621614, Ry=-0.450844, Rz=0.890436, yaw=1.43378, pitch=-1.0983, roll=-2.41938
+  Id: 4 (Hamming: 0)  distance=0.280322m, Tx=0.215044, Ty=0.175026, Tz=0.0412566, Rx=-0.74488, Ry=0.545369, Rz=0.384352, yaw=-2.50961, pitch=-0.394505, roll=-1.75847
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.273015m, Tx=0.205483, Ty=0.175714, Tz=0.0379279, Rx=-0.747399, Ry=-0.643042, Rz=-0.167012, yaw=2.43111, pitch=0.167798, roll=2.77585
+  Id: 5 (Hamming: 0)  distance=0.294982m, Tx=0.215925, Ty=0.196241, Tz=0.043361, Rx=0.0774895, Ry=-0.44919, Rz=0.89007, yaw=1.39997, pitch=-1.0975, roll=-2.45253
+  Id: 4 (Hamming: 0)  distance=0.280919m, Tx=0.212846, Ty=0.178612, Tz=0.0413476, Rx=-0.742583, Ry=0.539985, Rz=0.396216, yaw=-2.51286, pitch=-0.407391, roll=-1.74816
+3 tags detected:
+  Id: 0 (Hamming: 1)  distance=0.27353m, Tx=0.204652, Ty=0.177561, Tz=0.0375218, Rx=-0.747996, Ry=-0.642041, Rz=-0.168185, yaw=2.43227, pitch=0.168988, roll=2.77569
+  Id: 5 (Hamming: 0)  distance=0.295534m, Tx=0.215108, Ty=0.19802, Tz=0.0430932, Rx=0.0852604, Ry=-0.45353, Rz=0.887153, yaw=1.38497, pitch=-1.09114, roll=-2.46701
+  Id: 4 (Hamming: 0)  distance=0.279998m, Tx=0.210911, Ty=0.179544, Tz=0.0409827, Rx=-0.741161, Ry=0.53642, Rz=0.403651, yaw=-2.5151, pitch=-0.415504, roll=-1.74842
+  11.0049 fps
+3 tags detected:
+  Id: 0 (Hamming: 1)  distance=0.276654m, Tx=0.205316, Ty=0.182003, Tz=0.035466, Rx=-0.74937, Ry=-0.641741, Rz=-0.163136, yaw=2.43341, pitch=0.163868, roll=2.76101
+  Id: 5 (Hamming: 0)  distance=0.294892m, Tx=0.212865, Ty=0.200102, Tz=0.0401088, Rx=0.102036, Ry=-0.458873, Rz=0.882624, yaw=1.35199, pitch=-1.08141, roll=-2.49668
+  Id: 4 (Hamming: 0)  distance=0.278471m, Tx=0.207978, Ty=0.181159, Tz=0.0383746, Rx=-0.738677, Ry=0.523869, Rz=0.424166, yaw=-2.52472, pitch=-0.438041, roll=-1.74926
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.273901m, Tx=0.203275, Ty=0.180552, Tz=0.0332007, Rx=-0.758988, Ry=-0.632802, Rz=-0.153292, yaw=2.44661, pitch=0.153899, roll=2.75061
+  Id: 5 (Hamming: 0)  distance=0.293991m, Tx=0.212064, Ty=0.200005, Tz=0.0381791, Rx=0.102774, Ry=-0.455611, Rz=0.884226, yaw=1.34894, pitch=-1.08483, roll=-2.50969
+  Id: 4 (Hamming: 0)  distance=0.280676m, Tx=0.209615, Ty=0.182962, Tz=0.0369474, Rx=-0.736505, Ry=0.522379, Rz=0.429745, yaw=-2.52467, pitch=-0.44421, roll=-1.751
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.278104m, Tx=0.209748, Ty=0.179894, Tz=0.0313932, Rx=-0.761988, Ry=-0.625322, Rz=-0.168367, yaw=2.45439, pitch=0.169173, roll=2.74111
+  Id: 5 (Hamming: 0)  distance=0.297891m, Tx=0.218253, Ty=0.199629, Tz=0.0353944, Rx=0.0814919, Ry=-0.468852, Rz=0.879509, yaw=1.3987, pitch=-1.07483, roll=-2.47042
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.281503m, Tx=0.215621, Ty=0.178334, Tz=0.0307976, Rx=-0.756322, Ry=-0.627999, Rz=-0.183288, yaw=2.44863, pitch=0.18433, roll=2.74124
+  Id: 5 (Hamming: 0)  distance=0.298395m, Tx=0.222476, Ty=0.196053, Tz=0.0332767, Rx=0.067787, Ry=-0.467346, Rz=0.881472, yaw=1.42675, pitch=-1.07897, roll=-2.44813
+2 tags detected:
+  Id: 0 (Hamming: 1)  distance=0.280813m, Tx=0.218506, Ty=0.173917, Tz=0.0293944, Rx=-0.750217, Ry=-0.629673, Rz=-0.201708, yaw=2.44333, pitch=0.203101, roll=2.74545
+  Id: 5 (Hamming: 0)  distance=0.293777m, Tx=0.222955, Ty=0.18873, Tz=0.0312529, Rx=0.058862, Ry=-0.477802, Rz=0.876494, yaw=1.44822, pitch=-1.06853, roll=-2.41638
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.285427m, Tx=0.223387, Ty=0.175435, Tz=0.0281052, Rx=0.0478727, Ry=-0.488192, Rz=0.871422, yaw=1.47305, pitch=-1.05809, roll=-2.3901
+2 tags detected:
+  Id: 0 (Hamming: 1)  distance=0.27838m, Tx=0.225239, Ty=0.161459, Tz=0.0263405, Rx=-0.735536, Ry=-0.630827, Rz=-0.247071, yaw=2.43268, pitch=0.249656, roll=2.75608
+  Id: 5 (Hamming: 0)  distance=0.282582m, Tx=0.224071, Ty=0.170076, Tz=0.0268116, Rx=0.0336928, Ry=-0.495524, Rz=0.86794, yaw=1.50291, pitch=-1.05104, roll=-2.34776
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.277434m, Tx=0.227004, Ty=0.157465, Tz=0.0253692, Rx=-0.731193, Ry=-0.631299, Rz=-0.258491, yaw=2.42938, pitch=0.26146, roll=2.75862
+  Id: 5 (Hamming: 0)  distance=0.279573m, Tx=0.224398, Ty=0.164791, Tz=0.0255022, Rx=0.0251601, Ry=-0.49745, Rz=0.867128, yaw=1.52026, pitch=-1.04941, roll=-2.32534
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.273566m, Tx=0.224718, Ty=0.154167, Tz=0.0239306, Rx=0.0274057, Ry=-0.506704, Rz=0.861684, yaw=1.51676, pitch=-1.03858, roll=-2.32557
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.271144m, Tx=0.224878, Ty=0.149573, Tz=0.0240134, Rx=0.0187914, Ry=-0.51727, Rz=0.855616, yaw=1.53448, pitch=-1.02674, roll=-2.29768
+  12.0956 fps
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.270317m, Tx=0.228443, Ty=0.142483, Tz=0.0241662, Rx=-0.00438259, Ry=-0.523923, Rz=0.851754, yaw=1.57916, pitch=-1.01932, roll=-2.24886
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.28002m, Tx=0.238716, Ty=0.1445, Tz=0.0233622, Rx=-0.0689933, Ry=-0.515514, Rz=0.854099, yaw=1.70384, pitch=-1.02382, roll=-2.10863
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.266968m, Tx=0.230738, Ty=0.132371, Tz=0.0225815, Rx=-0.00224039, Ry=-0.511587, Rz=0.859229, yaw=1.57518, pitch=-1.03376, roll=-2.26404
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.262182m, Tx=0.231063, Ty=0.121978, Tz=0.0216958, Rx=-0.00239696, Ry=-0.524466, Rz=0.851428, yaw=1.57537, pitch=-1.0187, roll=-2.25878
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.261095m, Tx=0.234253, Ty=0.113413, Tz=0.0208155, Rx=-0.0110299, Ry=-0.528886, Rz=0.848621, yaw=1.59165, pitch=-1.01337, roll=-2.23221
+0 tags detected:
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.257328m, Tx=0.234942, Ty=0.102937, Tz=0.0205852, Rx=-0.00939077, Ry=-0.541138, Rz=0.840881, yaw=1.58815, pitch=-0.998909, roll=-2.2291
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.254453m, Tx=0.235905, Ty=0.09318, Tz=0.0203122, Rx=-0.0206921, Ry=-0.551157, Rz=0.834145, yaw=1.60832, pitch=-0.986581, roll=-2.2053
+0 tags detected:
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.249093m, Tx=0.235627, Ty=0.0783334, Tz=0.0197734, Rx=-0.0156767, Ry=-0.563722, Rz=0.825816, yaw=1.5986, pitch=-0.971647, roll=-2.21487
+  11.0042 fps
+0 tags detected:
+0 tags detected:
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.245559m, Tx=0.237835, Ty=0.059462, Tz=0.014069, Rx=-0.0572653, Ry=-0.573467, Rz=0.817225, yaw=1.67032, pitch=-0.956579, roll=-2.14056
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.245073m, Tx=0.23779, Ty=0.0579876, Tz=0.0124119, Rx=-0.0581814, Ry=-0.577886, Rz=0.814041, yaw=1.67114, pitch=-0.951076, roll=-2.15001
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.248579m, Tx=0.240661, Ty=0.0615261, Tz=0.00941093, Rx=-0.0873176, Ry=-0.585509, Rz=0.805949, yaw=1.71884, pitch=-0.937278, roll=-2.11149
+0 tags detected:
+0 tags detected:
+0 tags detected:
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.274261m, Tx=0.247471, Ty=0.117745, Tz=0.0106452, Rx=-0.138266, Ry=-0.501477, Rz=0.854051, yaw=1.83983, pitch=-1.02372, roll=-1.96331
+0 tags detected:
+  10.5466 fps
+0 tags detected:
+0 tags detected:
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.269063m, Tx=0.229564, Ty=0.140142, Tz=0.00746385, Rx=-0.0374763, Ry=-0.429508, Rz=0.902285, yaw=1.65783, pitch=-1.12504, roll=-2.14942
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.269565m, Tx=0.228686, Ty=0.142563, Tz=0.00663085, Rx=-0.0286494, Ry=-0.430941, Rz=0.901925, yaw=1.63718, pitch=-1.12421, roll=-2.16842
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.270884m, Tx=0.228198, Ty=0.145848, Tz=0.0056954, Rx=-0.0185605, Ry=-0.43545, Rz=0.900022, yaw=1.61339, pitch=-1.11982, roll=-2.1845
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.284264m, Tx=0.235042, Ty=0.159847, Tz=0.00313969, Rx=-0.0599585, Ry=-0.422602, Rz=0.90433, yaw=1.71174, pitch=-1.12981, roll=-2.05025
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.285526m, Tx=0.234238, Ty=0.163247, Tz=0.00285674, Rx=-0.0527468, Ry=-0.418931, Rz=0.906485, yaw=1.69605, pitch=-1.13488, roll=-2.05858
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.279951m, Tx=0.226524, Ty=0.164434, Tz=0.00458472, Rx=0.0128666, Ry=-0.401601, Rz=0.915725, yaw=1.53877, pitch=-1.15731, roll=-2.22947
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.290775m, Tx=0.232572, Ty=0.174464, Tz=0.00476863, Rx=-0.0126853, Ry=-0.386991, Rz=0.921996, yaw=1.60356, pitch=-1.1732, roll=-2.13966
+1 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.2825m, Tx=0.224685, Ty=0.171162, Tz=0.00513987, Rx=0.0592751, Ry=-0.355432, Rz=0.932821, yaw=1.40555, pitch=-1.20216, roll=-2.34496
+  11.7415 fps
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.279751m, Tx=0.225, Ty=0.166081, Tz=0.00727376, Rx=-0.625214, Ry=-0.764604, Rz=-0.156488, yaw=2.25624, pitch=0.157134, roll=2.79962
+  Id: 5 (Hamming: 0)  distance=0.286004m, Tx=0.223926, Ty=0.177811, Tz=0.00622572, Rx=0.0837522, Ry=-0.329868, Rz=0.940304, yaw=1.32215, pitch=-1.22352, roll=-2.38606
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.280015m, Tx=0.223951, Ty=0.167912, Tz=0.00774149, Rx=-0.618786, Ry=-0.773158, Rz=-0.139038, yaw=2.24574, pitch=0.13949, roll=2.79216
+  Id: 5 (Hamming: 0)  distance=0.286301m, Tx=0.222679, Ty=0.179819, Tz=0.00687635, Rx=0.0985556, Ry=-0.316589, Rz=0.943429, yaw=1.269, pitch=-1.23282, roll=-2.42896
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.279905m, Tx=0.222477, Ty=0.169659, Tz=0.00814921, Rx=-0.59999, Ry=-0.78863, Rz=-0.134441, yaw=2.22117, pitch=0.134849, roll=2.79534
+  Id: 5 (Hamming: 0)  distance=0.286226m, Tx=0.221257, Ty=0.181437, Tz=0.00713808, Rx=0.113738, Ry=-0.309428, Rz=0.944096, yaw=1.21855, pitch=-1.23484, roll=-2.46573
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.277019m, Tx=0.219274, Ty=0.169122, Tz=0.00749916, Rx=-0.607801, Ry=-0.785611, Rz=-0.115733, yaw=2.22927, pitch=0.115993, roll=2.78701
+  Id: 5 (Hamming: 0)  distance=0.293318m, Tx=0.22501, Ty=0.188027, Tz=0.00722263, Rx=0.0947137, Ry=-0.305866, Rz=0.947352, yaw=1.2705, pitch=-1.24486, roll=-2.38042
+  Id: 4 (Hamming: 1)  distance=0.243585m, Tx=0.191581, Ty=0.150118, Tz=0.00974175, Rx=-0.846187, Ry=0.42498, Rz=0.321496, yaw=-2.67616, pitch=-0.327309, roll=-1.72565
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.280658m, Tx=0.220451, Ty=0.173493, Tz=0.00841363, Rx=-0.566341, Ry=-0.81959, Rz=-0.086771, yaw=2.17546, pitch=0.0868803, roll=2.77026
+  Id: 5 (Hamming: 0)  distance=0.289231m, Tx=0.220069, Ty=0.187519, Tz=0.00781586, Rx=0.147412, Ry=-0.266421, Rz=0.952518, yaw=1.06542, pitch=-1.2614, roll=-2.57177
+  Id: 4 (Hamming: 0)  distance=0.268529m, Tx=0.221841, Ty=0.145422, Tz=-0.0417934, Rx=0.108442, Ry=0.294503, Rz=-0.949478, yaw=-1.21798, pitch=1.25157, roll=-0.0199791
+2 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.286186m, Tx=0.22268, Ty=0.179244, Tz=0.0136856, Rx=-0.566596, Ry=-0.823113, Rz=-0.038143, yaw=2.17367, pitch=0.0381523, roll=2.74841
+  Id: 5 (Hamming: 0)  distance=0.292619m, Tx=0.219616, Ty=0.192883, Tz=0.013812, Rx=0.168097, Ry=-0.235957, Rz=0.957114, yaw=0.951794, pitch=-1.27687, roll=-2.67303
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.280565m, Tx=0.216876, Ty=0.177257, Tz=0.0161848, Rx=-0.563324, Ry=-0.825193, Rz=-0.0415146, yaw=2.16979, pitch=0.0415265, roll=2.77569
+  Id: 5 (Hamming: 0)  distance=0.292469m, Tx=0.218499, Ty=0.19364, Tz=0.0173064, Rx=0.17013, Ry=-0.234185, Rz=0.95719, yaw=0.942519, pitch=-1.27713, roll=-2.68052
+  Id: 4 (Hamming: 0)  distance=0.264039m, Tx=0.21481, Ty=0.149765, Tz=-0.0338119, Rx=0.129666, Ry=0.330888, Rz=-0.934719, yaw=-1.19732, pitch=1.20747, roll=-0.125608
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.277319m, Tx=0.213796, Ty=0.17588, Tz=0.0162279, Rx=-0.565305, Ry=-0.824494, Rz=-0.0253097, yaw=2.17182, pitch=0.0253124, roll=2.76456
+  Id: 5 (Hamming: 0)  distance=0.292736m, Tx=0.218231, Ty=0.194279, Tz=0.0180373, Rx=0.175133, Ry=-0.226159, Rz=0.958217, yaw=0.911875, pitch=-1.2807, roll=-2.70903
+  Id: 4 (Hamming: 0)  distance=0.263121m, Tx=0.213549, Ty=0.150078, Tz=-0.0332551, Rx=0.131004, Ry=0.333264, Rz=-0.933688, yaw=-1.19626, pitch=1.20458, roll=-0.137608
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.281387m, Tx=0.215374, Ty=0.180223, Tz=0.017676, Rx=-0.544909, Ry=-0.838146, Rz=-0.0242137, yaw=2.14727, pitch=0.024216, roll=2.78133
+  Id: 5 (Hamming: 0)  distance=0.295717m, Tx=0.218664, Ty=0.198197, Tz=0.0187858, Rx=0.187015, Ry=-0.205179, Rz=0.960691, yaw=0.831677, pitch=-1.28948, roll=-2.77959
+  Id: 4 (Hamming: 0)  distance=0.264022m, Tx=0.212347, Ty=0.153414, Tz=-0.0328681, Rx=0.144187, Ry=0.331437, Rz=-0.932395, yaw=-1.16045, pitch=1.20098, roll=-0.19779
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.282918m, Tx=0.215334, Ty=0.182589, Tz=0.0183013, Rx=-0.5442, Ry=-0.838898, Rz=-0.00981154, yaw=2.14626, pitch=0.00981169, roll=2.77306
+  Id: 5 (Hamming: 0)  distance=0.302569m, Tx=0.22175, Ty=0.204894, Tz=0.0198326, Rx=0.178867, Ry=-0.200661, Rz=0.963194, yaw=0.842759, pitch=-1.29864, roll=-2.74938
+  Id: 4 (Hamming: 0)  distance=0.265518m, Tx=0.212096, Ty=0.156422, Tz=-0.0323599, Rx=0.156022, Ry=0.33319, Rz=-0.929861, yaw=-1.13286, pitch=1.19403, roll=-0.240183
+  10.3431 fps
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.284257m, Tx=0.213592, Ty=0.186489, Tz=0.0200663, Rx=-0.548963, Ry=-0.835602, Rz=0.0202292, yaw=2.15205, pitch=-0.0202306, roll=2.75885
+  Id: 5 (Hamming: 0)  distance=0.301817m, Tx=0.218152, Ty=0.20743, Tz=0.0218238, Rx=0.209652, Ry=-0.177381, Rz=0.961552, yaw=0.702208, pitch=-1.2926, roll=-2.91129
+  Id: 4 (Hamming: 0)  distance=0.266812m, Tx=0.198884, Ty=0.176599, Tz=0.0211351, Rx=-0.856646, Ry=0.369629, Rz=0.359905, yaw=-2.73424, pitch=-0.368166, roll=-1.60407
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.279429m, Tx=0.208629, Ty=0.184816, Tz=0.0199352, Rx=-0.562549, Ry=-0.825901, Rz=0.0377611, yaw=2.16875, pitch=-0.0377701, roll=2.75091
+  Id: 5 (Hamming: 0)  distance=0.301046m, Tx=0.216378, Ty=0.208042, Tz=0.0229803, Rx=0.217739, Ry=-0.177242, Rz=0.959779, yaw=0.683226, pitch=-1.28621, roll=-2.93222
+  Id: 4 (Hamming: 0)  distance=0.264515m, Tx=0.195959, Ty=0.176283, Tz=0.0221913, Rx=-0.855758, Ry=0.371018, Rz=0.360589, yaw=-2.7325, pitch=-0.3689, roll=-1.59899
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.277813m, Tx=0.206501, Ty=0.184729, Tz=0.0203124, Rx=-0.564321, Ry=-0.824638, Rz=0.0389103, yaw=2.17092, pitch=-0.0389201, roll=2.754
+  Id: 5 (Hamming: 0)  distance=0.303138m, Tx=0.216848, Ty=0.21048, Tz=0.0238256, Rx=0.215572, Ry=-0.177795, Rz=0.960165, yaw=0.689657, pitch=-1.28759, roll=-2.9222
+  Id: 4 (Hamming: 0)  distance=0.262748m, Tx=0.193825, Ty=0.175917, Tz=0.022842, Rx=-0.853454, Ry=0.372859, Rz=0.364131, yaw=-2.7297, pitch=-0.3727, roll=-1.59507
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.275213m, Tx=0.203966, Ty=0.183678, Tz=0.0200516, Rx=-0.567616, Ry=-0.822392, Rz=0.0385278, yaw=2.17492, pitch=-0.0385373, roll=2.75729
+  Id: 5 (Hamming: 0)  distance=0.301195m, Tx=0.214941, Ty=0.209642, Tz=0.0238596, Rx=0.217188, Ry=-0.181442, Rz=0.959118, yaw=0.695965, pitch=-1.28387, roll=-2.9156
+  Id: 4 (Hamming: 0)  distance=0.261473m, Tx=0.192449, Ty=0.175529, Tz=0.0228235, Rx=-0.852475, Ry=0.373697, Rz=0.365563, yaw=-2.72845, pitch=-0.374238, roll=-1.5945
+3 tags detected:
+  Id: 0 (Hamming: 0)  distance=0.278056m, Tx=0.207774, Ty=0.183617, Tz=0.0207237, Rx=-0.553666, Ry=-0.832735, Rz=-0.00252626, yaw=2.15756, pitch=0.00252626, roll=2.79322
+  Id: 5 (Hamming: 0)  distance=0.299108m, Tx=0.215676, Ty=0.205912, Tz=0.0234537, Rx=0.207361, Ry=-0.199567, Rz=0.957692, yaw=0.766248, pitch=-1.27887, roll=-2.84738
+  Id: 4 (Hamming: 0)  distance=0.264561m, Tx=0.197012, Ty=0.175204, Tz=0.0219588, Rx=-0.855558, Ry=0.381765, Rz=0.349679, yaw=-2.72189, pitch=-0.357229, roll=-1.60371
+2 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.296097m, Tx=0.2159, Ty=0.201318, Tz=0.0230579, Rx=0.203859, Ry=-0.205419, Rz=0.957207, yaw=0.789209, pitch=-1.27719, roll=-2.82795
+  Id: 4 (Hamming: 0)  distance=0.265339m, Tx=0.199634, Ty=0.173462, Tz=0.0214936, Rx=-0.859774, Ry=0.387111, Rz=0.333067, yaw=-2.71853, pitch=-0.339555, roll=-1.61191
+2 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.292481m, Tx=0.216032, Ty=0.195843, Tz=0.0228235, Rx=0.191173, Ry=-0.212871, Rz=0.958196, yaw=0.839048, pitch=-1.28063, roll=-2.7795
+  Id: 4 (Hamming: 0)  distance=0.264363m, Tx=0.201277, Ty=0.170075, Tz=0.0212121, Rx=-0.858539, Ry=0.388996, Rz=0.334056, yaw=-2.71617, pitch=-0.340603, roll=-1.61706
+2 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.288985m, Tx=0.216014, Ty=0.190636, Tz=0.0225397, Rx=0.181878, Ry=-0.215572, Rz=0.9594, yaw=0.869972, pitch=-1.28487, roll=-2.7488
+  Id: 4 (Hamming: 0)  distance=0.263575m, Tx=0.202907, Ty=0.166912, Tz=0.0209916, Rx=-0.859883, Ry=0.392311, Rz=0.326638, yaw=-2.71356, pitch=-0.332745, roll=-1.6223
+2 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.287694m, Tx=0.219271, Ty=0.18487, Tz=0.0226071, Rx=0.133326, Ry=-0.243924, Rz=0.960586, yaw=1.07058, pitch=-1.2891, roll=-2.5243
+  Id: 4 (Hamming: 0)  distance=0.265826m, Tx=0.220963, Ty=0.144596, Tz=-0.0305154, Rx=0.0312142, Ry=0.367831, Rz=-0.929368, yaw=-1.48614, pitch=1.1927, roll=0.144755
+2 tags detected:
+  Id: 5 (Hamming: 0)  distance=0.277928m, Tx=0.217301, Ty=0.171961, Tz=0.0212974, Rx=0.141645, Ry=-0.25455, Rz=0.95663, yaw=1.06301, pitch=-1.27521, roll=-2.54783
+  Id: 4 (Hamming: 1)  distance=0.267153m, Tx=0.226591, Ty=0.137976, Tz=-0.0314617, Rx=-0.0336734, Ry=0.370791, Rz=-0.928106, yaw=-1.66136, pitch=1.18929, roll=0.35044
