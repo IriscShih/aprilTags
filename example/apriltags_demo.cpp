@@ -21,6 +21,10 @@ using namespace std;
 #include <list>
 #include <sys/time.h>
 
+#include <math.h>
+#include <cstdlib>
+
+
 const string usage = "\n"
   "Usage:\n"
   "  apriltags_demo [OPTION...] [IMG1 [IMG2...]]\n"
@@ -71,6 +75,14 @@ const string intro = "\n"
 #include "AprilTags/Tag36h9.h"
 #include "AprilTags/Tag36h11.h"
 
+//OpenIGTLink TrackerClient
+#include "igtl/igtlOSUtil.h"
+#include "igtl/igtlTransformMessage.h"
+#include "igtl/igtlClientSocket.h"
+
+//epiphan_sdk
+#include "epiphan/frmgrab.h"
+
 
 // Needed for getopt / command line options processing
 #include <unistd.h>
@@ -80,6 +92,10 @@ extern char *optarg;
 // For Arduino: locally defined serial port access class
 #include "Serial.h"
 
+
+//Eigen::Matrix4d avgT;
+Eigen::Matrix3d avgRotation;
+Eigen::Vector3d avgTranslation;
 
 const char* windowName = "apriltags_demo";
 
@@ -154,6 +170,7 @@ class Demo {
   int m_brightness;
 
   Serial m_serial;
+   
 
 public:
 
@@ -170,8 +187,8 @@ public:
 
     m_width(640),
     m_height(480),
-    m_tagSize(0.026),
-    m_cubeSize(0.032),
+    m_tagSize(0.0530),
+    m_cubeSize(0.060),
     // m_fx(600),
     // m_fy(600),
     m_fx(613.1380),
@@ -184,7 +201,7 @@ public:
     m_exposure(-1),
     m_gain(-1),
     m_brightness(-1),
-
+    
     m_deviceId(0)
   {}
 
@@ -303,58 +320,78 @@ public:
       m_serial.open("/dev/ttyACM0");
     }
   }
+    
+//=============================================NOT COMPLETE======================================    
+  // void setupVideo(){
+    
+  //       const char* sn;
+  //       FrmGrabber* fg = NULL;
+        
+  //       /* Initialize frmgrab library */
+  //       FrmGrab_Init();
+        
+  //       fg = FrmGrabLocal_OpenSN("D2S353140");
+        
+  //       /* Deinitialize frmgrab library */
+  //       FrmGrab_Deinit();
+    
+  // }
+  //=============================================================================================
+    
 
-  void setupVideo() {
+ void setupVideo() {
 
 #ifdef EXPOSURE_CONTROL
-    // manually setting camera exposure settings; OpenCV/v4l1 doesn't
-    // support exposure control; so here we manually use v4l2 before
-    // opening the device via OpenCV; confirmed to work with Logitech
-    // C270; try exposure=20, gain=100, brightness=150
+   // manually setting camera exposure settings; OpenCV/v4l1 doesn't
+   // support exposure control; so here we manually use v4l2 before
+   // opening the device via OpenCV; confirmed to work with Logitech
+   // C270; try exposure=20, gain=100, brightness=150
 
-    string video_str = "/dev/video0";
-    video_str[10] = '0' + m_deviceId;
-    int device = v4l2_open(video_str.c_str(), O_RDWR | O_NONBLOCK);
+   string video_str = "/dev/video0";
+   //string video_str = "/dev/vga2usb1";
+   video_str[10] = '0' + m_deviceId;
+   int device = v4l2_open(video_str.c_str(), O_RDWR | O_NONBLOCK);
 
-    if (m_exposure >= 0) {
-      // not sure why, but v4l2_set_control() does not work for
-      // V4L2_CID_EXPOSURE_AUTO...
-      struct v4l2_control c;
-      c.id = V4L2_CID_EXPOSURE_AUTO;
-      c.value = 1; // 1=manual, 3=auto; V4L2_EXPOSURE_AUTO fails...
-      if (v4l2_ioctl(device, VIDIOC_S_CTRL, &c) != 0) {
-        cout << "Failed to set... " << strerror(errno) << endl;
-      }
-      cout << "exposure: " << m_exposure << endl;
-      v4l2_set_control(device, V4L2_CID_EXPOSURE_ABSOLUTE, m_exposure*6);
-    }
-    if (m_gain >= 0) {
-      cout << "gain: " << m_gain << endl;
-      v4l2_set_control(device, V4L2_CID_GAIN, m_gain*256);
-    }
-    if (m_brightness >= 0) {
-      cout << "brightness: " << m_brightness << endl;
-      v4l2_set_control(device, V4L2_CID_BRIGHTNESS, m_brightness*256);
-    }
-    v4l2_close(device);
+   if (m_exposure >= 0) {
+     // not sure why, but v4l2_set_control() does not work for
+     // V4L2_CID_EXPOSURE_AUTO...
+     struct v4l2_control c;
+     c.id = V4L2_CID_EXPOSURE_AUTO;
+     c.value = 1; // 1=manual, 3=auto; V4L2_EXPOSURE_AUTO fails...
+     if (v4l2_ioctl(device, VIDIOC_S_CTRL, &c) != 0) {
+       cout << "Failed to set... " << strerror(errno) << endl;
+     }
+     cout << "exposure: " << m_exposure << endl;
+     v4l2_set_control(device, V4L2_CID_EXPOSURE_ABSOLUTE, m_exposure*6);
+   }
+   if (m_gain >= 0) {
+     cout << "gain: " << m_gain << endl;
+     v4l2_set_control(device, V4L2_CID_GAIN, m_gain*256);
+   }
+   if (m_brightness >= 0) {
+     cout << "brightness: " << m_brightness << endl;
+     v4l2_set_control(device, V4L2_CID_BRIGHTNESS, m_brightness*256);
+   }
+   v4l2_close(device);
 #endif 
+   
 
-    // find and open a USB camera (built in laptop camera, web cam etc)
-    m_cap = cv::VideoCapture(m_deviceId);
-    //m_cap = cv::VideoCapture("/Usagers/pearl790131/masterThesis/git/marker_stuff/InsideOutTracking/2ndTryWhiteBorders/GOPR0085.MP4");
-    //m_cap = cv::VideoCapture("/Users/pearl790131/masterThesis/git/marker_stuff/GoProVideo/GOPR8802.MP4");
-        if(!m_cap.isOpened()) {
-      cerr << "ERROR: Can't find video device " << m_deviceId << "\n";
-      exit(1);
-    }
-    m_cap.set(CV_CAP_PROP_FRAME_WIDTH, m_width);
-    m_cap.set(CV_CAP_PROP_FRAME_HEIGHT, m_height);
-    cout << "Camera successfully opened (ignore error messages above...)" << endl;
-    cout << "Actual resolution: "
-         << m_cap.get(CV_CAP_PROP_FRAME_WIDTH) << "x"
-         << m_cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
+   // find and open a USB camera (built in laptop camera, web cam etc)
+   m_cap = cv::VideoCapture(m_deviceId);
+   //m_cap = cv::VideoCapture("/Usagers/pearl790131/masterThesis/git/marker_stuff/InsideOutTracking/2ndTryWhiteBorders/GOPR0085.MP4");
+   //m_cap = cv::VideoCapture("/Users/pearl790131/masterThesis/git/marker_stuff/GoProVideo/GOPR8802.MP4");
+       if(!m_cap.isOpened()) {
+     cerr << "ERROR: Can't find video device " << m_deviceId << "\n";
+     exit(1);
+   }
+   m_cap.set(CV_CAP_PROP_FRAME_WIDTH, m_width);
+   m_cap.set(CV_CAP_PROP_FRAME_HEIGHT, m_height);
+   cout << "Camera successfully opened (ignore error messages above...)" << endl;
+   cout << "Actual resolution: "
+        << m_cap.get(CV_CAP_PROP_FRAME_WIDTH) << "x"
+        << m_cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
 
-  }
+ }
 
   void print_detection(AprilTags::TagDetection& detection) const {
     cout << "  Id: " << detection.id
@@ -394,19 +431,16 @@ public:
     // for suitable factors.
   }
 
-  // void print_detectionT(AprilTags::TagDetection& detection) const {
-  //   Eigen::Matrix4d T = detection.getRelativeTransform(m_tagSize, m_cubeSize, m_fx, m_fy, m_px, m_py);
-  //   //cout<<"T= "<<T<<endl;
-
-  // }
-
+  //save the T(4x4) matrix for every tag
   Eigen::Matrix4d giveT(AprilTags::TagDetection& detection) const {
 
     Eigen::Matrix4d T = detection.getRelativeTransform(m_tagSize, m_cubeSize, m_fx, m_fy, m_px, m_py);
-
+    //cout<< T <<endl;
     return T;
+
   }
 
+  //same for the translation and rotation
   Eigen::Vector3d giveTranslation(AprilTags::TagDetection& detection) const {
 
     Eigen::Vector3d translation;
@@ -414,7 +448,6 @@ public:
    
     detection.getRelativeTranslationRotation(m_tagSize, m_cubeSize, m_fx, m_fy, m_px, m_py,
                                              translation, rotation);
-
     return translation;
 
   }
@@ -426,7 +459,6 @@ public:
 
     detection.getRelativeTranslationRotation(m_tagSize, m_cubeSize, m_fx, m_fy, m_px, m_py,
                                              translation, rotation);
-
     return rotation;
   }
 
@@ -450,22 +482,25 @@ public:
       cout << "Extracting tags took " << dt << " seconds." << endl;
     }
 
-    Eigen::Matrix4d avgT;
-    avgT << 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+
+    //define a new average T matrix
+    //Eigen::Matrix4d avgT;
+    //avgT << 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
     
     // Eigen::Matrix3d avgRotation;
-    // avgRotation << 0,0,0,0,0,0,0,0,0;
+    avgRotation << 0,0,0,0,0,0,0,0,0;
 
     // Eigen::Vector3d avgTranslation;
-    // avgTranslation << 0,0,0;
+    avgTranslation << 0,0,0;
+
 
     // print out each detection
     cout << detections.size() << " tags detected:" << endl;
     for (int i=0; i<detections.size(); i++) {
-      //print_detection(detections[i]);
-      //avgRT(detections[i]);
+      print_detection(detections[i]);
       //print_detectionT(detections[i]);
 
+      //get every T for every detected tags
       Eigen::Matrix4d currentT;
       currentT = giveT(detections[i]);
 
@@ -475,18 +510,23 @@ public:
       Eigen::Vector3d currentTranslation;
       currentTranslation = giveTranslation(detections[i]);
 
-      avgT = avgT + currentT;
-      // avgRotation = avgRotation + currentRotation;
-      // avgTranslation = avgTranslation + currentTranslation;
+      //add up all the detected tags' matrices 
+      // avgT = avgT + currentT;
+      avgRotation = avgRotation + currentRotation;
+      avgTranslation = avgTranslation + currentTranslation;
 
     }
-    cout << "AverageT: " << (avgT / detections.size()) <<endl;
-
-    // cout << "Average R" << (avgRotation / detections.size())<<endl;
+    // avgT = avgT / detections.size();
+    avgRotation = avgRotation / detections.size();
+    avgTranslation(0) = avgTranslation(0) / detections.size();
+    avgTranslation(1) = avgTranslation(1) / detections.size();
+    avgTranslation(2) = avgTranslation(2) / detections.size();
     
-    // cout << "Average Tx" << (avgTranslation(0) / detections.size());
-    // cout << "Average Ty" << (avgTranslation(1) / detections.size());
-    // cout << "Average Tz" << (avgTranslation(2) / detections.size());
+    // cout << "AverageT: " << avgT <<endl;
+//    cout << "Average R" << (avgRotation / detections.size())<<endl;
+//    cout << "Average Tx" << (avgTranslation(0) / detections.size());
+//    cout << "Average Ty" << (avgTranslation(1) / detections.size());
+//    cout << "Average Tz" << (avgTranslation(2) / detections.size());
 
 
     // show the current image including any detections
@@ -549,37 +589,127 @@ public:
     return m_imgNames.empty();
   }
 
-  // The processing loop where images are retrieved, tags detected,
-  // and information about detections generated
-  void loop() {
 
+void loop(int argc, char* argv[]){
+
+  char*  hostname = "localhost";
+  int    port     = 18944;
+  double fps      = 10;
+  int    interval = (int) (1000.0 / fps);
+
+  //------------------------------------------------------------
+  // Establish Connection
+
+  igtl::ClientSocket::Pointer socket;
+  socket = igtl::ClientSocket::New();
+  int r = socket->ConnectToServer(hostname, port);
+
+  if (r != 0)
+    {
+    std::cerr << "Cannot connect to the server." << std::endl;
+    exit(0);
+    }
+
+  //------------------------------------------------------------
+  // Allocate Transform Message Class
+
+  igtl::TransformMessage::Pointer transMsg;
+  transMsg = igtl::TransformMessage::New();
+  transMsg->SetDeviceName("Tracker");
+
+  //------------------------------------------------------------
+  // Allocate TimeStamp class
+  igtl::TimeStamp::Pointer ts;
+  ts = igtl::TimeStamp::New();
+
+  //------------------------------------------------------------
+  // Allocate TimeStamp class
     cv::Mat image;
     cv::Mat image_gray;
+    
+  //------------------------------------------------------------
+  // loop
+  while (1)
+    {
+    // capture frame
+    m_cap >> image;
+    //process the detected tags information
+    processImage(image, image_gray);
 
-    int frame = 0;
-    double last_t = tic();
-    while (true) {
-
-      // capture frame
-      m_cap >> image;
-
-      processImage(image, image_gray);
-
-      // print out the frame rate at which image frames are being processed
-      frame++;
-      if (frame % 10 == 0) {
-        double t = tic();
-        cout << "  " << 10./(t-last_t) << " fps" << endl;
-        last_t = t;
-      }
-
-      // exit if any key is pressed
-      if (cv::waitKey(1) >= 0) break;
+    igtl::Matrix4x4 matrix;
+    GetTMatrix(matrix);
+    ts->GetTime();
+    transMsg->SetMatrix(matrix);
+    transMsg->SetTimeStamp(ts);
+    transMsg->Pack();
+    socket->Send(transMsg->GetPackPointer(), transMsg->GetPackSize());
+    igtl::Sleep(interval); // wait
     }
-  }
 
-}; // Demo
+  //------------------------------------------------------------
+  // Close connection
 
+  socket->CloseSocket();
+}
+
+void GetTMatrix(igtl::Matrix4x4& matrix)
+{
+  float position[3];
+  float orientation[4];
+
+  // random position
+  position[0] = avgTranslation(0);
+  position[1] = avgTranslation(1);
+  position[2] = avgTranslation(2);
+
+  // random orientation
+  orientation[0]=avgRotation(0);
+  orientation[1]=avgRotation(1);
+  orientation[2]=avgRotation(2);
+  orientation[3]=avgRotation(3);
+
+  //igtl::Matrix4x4 matrix;
+  igtl::QuaternionToMatrix(orientation, matrix);
+
+  matrix[0][3] = position[0];
+  matrix[1][3] = position[1];
+  matrix[2][3] = position[2];
+  
+  igtl::PrintMatrix(matrix);
+}
+
+
+  // The processing loop where images are retrieved, tags detected,
+  // and information about detections generated
+//  void loop(int argc, char* argv[]) {
+//
+//    cv::Mat image;
+//    cv::Mat image_gray;
+//
+//    int frame = 0;
+//    double last_t = tic();
+//    while (true) {
+//
+//      // capture frame
+//      m_cap >> image;
+//
+//      processImage(image, image_gray);
+//      //opLink(argc, argv);
+//
+//      // print out the frame rate at which image frames are being processed
+//      frame++;
+//      if (frame % 10 == 0) {
+//        double t = tic();
+//        cout << "  " << 10./(t-last_t) << " fps" << endl;
+//        last_t = t;
+//      }
+//
+//      // exit if any key is pressed
+//      if (cv::waitKey(1) >= 0) break;
+//    }
+//  }
+
+};
 
 // here is were everything begins
 int main(int argc, char* argv[]) {
@@ -597,7 +727,7 @@ int main(int argc, char* argv[]) {
     demo.setupVideo();
 
     // the actual processing loop where tags are detected and visualized
-    demo.loop();
+    demo.loop(argc, argv);
 
   } else {
     cout << "Processing image" << endl;
@@ -607,5 +737,6 @@ int main(int argc, char* argv[]) {
 
   }
 
-  return 0;
+    return 0;
+
 }
