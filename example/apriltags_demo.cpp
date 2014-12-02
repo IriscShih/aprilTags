@@ -23,6 +23,7 @@ using namespace std;
 
 #include <math.h>
 #include <cstdlib>
+#include <stdlib.h>
 
 
 const string usage = "\n"
@@ -81,7 +82,13 @@ const string intro = "\n"
 #include "igtl/igtlClientSocket.h"
 
 //epiphan_sdk
-#include "epiphan/frmgrab.h"
+#include "avi_writer.h"
+#include "v2u_lib.h"
+#include "frmgrab.h"
+
+#ifndef V2U_COUNT
+#  define V2U_COUNT(array) (sizeof(array)/sizeof((array)[0]))
+#endif /* V2U_COUNT */
 
 
 // Needed for getopt / command line options processing
@@ -321,77 +328,186 @@ public:
     }
   }
     
-//=============================================NOT COMPLETE======================================    
-  // void setupVideo(){
-    
-  //       const char* sn;
-  //       FrmGrabber* fg = NULL;
+
+    static FrmGrabber* open_grabber(const char* sn){
+        FrmGrabber* fg;
+        if (sn) {
+            
+            /* First attempt to open a local grabber, then try the network */
+            fg = FrmGrabLocal_OpenSN(sn);
+            if (!fg) fg = FrmGrabNet_OpenSN(sn);
+            if (!fg) {
+                printf("Can't find a frame grabber with s/n %s\n",sn);
+            }
+        } else {
+            
+            fg = FrmGrabLocal_Open();
+            if (!fg) {
+                printf("No Epiphan frame grabber found\n");
+            }
+        }
         
-  //       /* Initialize frmgrab library */
-  //       FrmGrab_Init();
-        
-  //       fg = FrmGrabLocal_OpenSN("D2S353140");
-        
-  //       /* Deinitialize frmgrab library */
-  //       FrmGrab_Deinit();
+        return fg;
+    }
+    static const char* v2avi_parse_args(int argc, char* argv[], V2U_UINT32* format,
+                                        V2UNoiseFilter* filter, double* fps, const char** sn)
+    {
+        if (argc > 0) {
+            int i;
+            for (i=0;  i<argc-1; i++) {
+                if (!strcmp(argv[i], "-y") || !strcmp(argv[i], "--yuv")) {
+                    *format = V2U_GRABFRAME_FORMAT_CYUY2;
+                } else if (!strcmp(argv[i], "-c")) {
+                    if (i < (argc-2)) {
+                        const char* formatName = argv[i+1];
+                        if (!strcasecmp(formatName, "BGR24")) {
+                            *format = V2U_GRABFRAME_FORMAT_CBGR24;
+                        } else if (!strcasecmp(formatName, "RGB24")) {
+                            *format = V2U_GRABFRAME_FORMAT_CRGB24;
+                        } else if (!strcasecmp(formatName, "YUY2")) {
+                            *format = V2U_GRABFRAME_FORMAT_CYUY2;
+                        } else {
+                            return NULL;
+                        }
+                        i++;
+                        continue;
+                    }
+                    return NULL;
+                }else if (!strcmp(argv[i], "-s") || !strcmp(argv[i], "--serial")) {
+                    if (i < (argc-2) ) {
+                        *sn = argv[++i];
+                        continue;
+                    }
+                    return NULL;
+                }
+            }
+                return argv[i];
+        }
+        return NULL;
+    }
+
     
-  // }
-  //=============================================================================================
+  void setupVideo(int argc, char* argv[]){
+      
+      V2U_UINT32 format = V2U_GRABFRAME_FORMAT_CBGR24;
+      V2UNoiseFilter filter = V2UNoiseFilter_Auto;
+      const char* sn = NULL;
+      double fps = 0.0;
+      const char* fname = v2avi_parse_args(argc-1, argv+1, &format, &filter, &fps, &sn);
+      
+      if(fname){
+          FrmGrabber* fg;
+          FrmGrab_Init();
+          fg = open_grabber(sn);
+          if(fg){
+              const char* pn = FrmGrab_GetProductName(fg);
+              
+              /* Check if hardware compression is supported */
+              V2U_UINT32 caps = FrmGrab_GetCaps(fg);
+              if (caps & V2U_CAPS_HW_COMPRESSION) {
+                  V2U_VideoMode vm;
+                  printf("%s %s grabber s/n %s (%s)\n", (sn) ?
+                         "Opened" : "Found", pn, FrmGrab_GetSN(fg),
+                         FrmGrab_GetLocation(fg));
+                  
+                  /* Detect video mode */
+                  if (FrmGrab_DetectVideoMode(fg,&vm) &&
+                      vm.width && vm.height) {
+                      
+                      /* Open the output file */
+                      FILE* f = fopen(fname, "wb");
+                      printf("Detected %dx%d %d.%d Hz\n",vm.width,vm.height,
+                             (vm.vfreq+50)/1000, ((vm.vfreq+50)%1000)/100);
+                      
+                      if (f) {
+                          const char* name = "????";
+                          
+                          /* Set desired compression level */
+                          V2U_Property p;
+                          p.key = V2UKey_NoiseFilter;
+                          p.value.int32 = filter;
+                          if (!FrmGrab_SetProperty(fg, &p) &&
+                              filter != V2UNoiseFilter_Auto) {
+                              printf("Can't set compression level\n");
+                          }
+                          
+                          switch (format) {
+                              case V2U_GRABFRAME_FORMAT_CBGR24:
+                                  name = "BGR24";
+                                  break;
+                              case V2U_GRABFRAME_FORMAT_CRGB24:
+                                  name = "RGB24";
+                                  break;
+                              case V2U_GRABFRAME_FORMAT_CYUY2:
+                                  name = "YUY2";
+                                  break;
+                          }
+                          
+                      }
+                  }
+              }
+          }
+          
+          FrmGrab_Close(fg);
+          FrmGrabNet_Deinit();
+      }
+    
+  }
     
 
- void setupVideo() {
-
-#ifdef EXPOSURE_CONTROL
-   // manually setting camera exposure settings; OpenCV/v4l1 doesn't
-   // support exposure control; so here we manually use v4l2 before
-   // opening the device via OpenCV; confirmed to work with Logitech
-   // C270; try exposure=20, gain=100, brightness=150
-
-   string video_str = "/dev/video0";
-   //string video_str = "/dev/vga2usb1";
-   video_str[10] = '0' + m_deviceId;
-   int device = v4l2_open(video_str.c_str(), O_RDWR | O_NONBLOCK);
-
-   if (m_exposure >= 0) {
-     // not sure why, but v4l2_set_control() does not work for
-     // V4L2_CID_EXPOSURE_AUTO...
-     struct v4l2_control c;
-     c.id = V4L2_CID_EXPOSURE_AUTO;
-     c.value = 1; // 1=manual, 3=auto; V4L2_EXPOSURE_AUTO fails...
-     if (v4l2_ioctl(device, VIDIOC_S_CTRL, &c) != 0) {
-       cout << "Failed to set... " << strerror(errno) << endl;
-     }
-     cout << "exposure: " << m_exposure << endl;
-     v4l2_set_control(device, V4L2_CID_EXPOSURE_ABSOLUTE, m_exposure*6);
-   }
-   if (m_gain >= 0) {
-     cout << "gain: " << m_gain << endl;
-     v4l2_set_control(device, V4L2_CID_GAIN, m_gain*256);
-   }
-   if (m_brightness >= 0) {
-     cout << "brightness: " << m_brightness << endl;
-     v4l2_set_control(device, V4L2_CID_BRIGHTNESS, m_brightness*256);
-   }
-   v4l2_close(device);
-#endif 
-   
-
-   // find and open a USB camera (built in laptop camera, web cam etc)
-   m_cap = cv::VideoCapture(m_deviceId);
-   //m_cap = cv::VideoCapture("/Usagers/pearl790131/masterThesis/git/marker_stuff/InsideOutTracking/2ndTryWhiteBorders/GOPR0085.MP4");
-   //m_cap = cv::VideoCapture("/Users/pearl790131/masterThesis/git/marker_stuff/GoProVideo/GOPR8802.MP4");
-       if(!m_cap.isOpened()) {
-     cerr << "ERROR: Can't find video device " << m_deviceId << "\n";
-     exit(1);
-   }
-   m_cap.set(CV_CAP_PROP_FRAME_WIDTH, m_width);
-   m_cap.set(CV_CAP_PROP_FRAME_HEIGHT, m_height);
-   cout << "Camera successfully opened (ignore error messages above...)" << endl;
-   cout << "Actual resolution: "
-        << m_cap.get(CV_CAP_PROP_FRAME_WIDTH) << "x"
-        << m_cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
-
- }
+//  void setupVideo() {
+//
+//#ifdef EXPOSURE_CONTROL
+//    // manually setting camera exposure settings; OpenCV/v4l1 doesn't
+//    // support exposure control; so here we manually use v4l2 before
+//    // opening the device via OpenCV; confirmed to work with Logitech
+//    // C270; try exposure=20, gain=100, brightness=150
+//
+//    string video_str = "/dev/video0";
+//    //string video_str = "/dev/vga2usb1";
+//    video_str[10] = '0' + m_deviceId;
+//    int device = v4l2_open(video_str.c_str(), O_RDWR | O_NONBLOCK);
+//
+//    if (m_exposure >= 0) {
+//      // not sure why, but v4l2_set_control() does not work for
+//      // V4L2_CID_EXPOSURE_AUTO...
+//      struct v4l2_control c;
+//      c.id = V4L2_CID_EXPOSURE_AUTO;
+//      c.value = 1; // 1=manual, 3=auto; V4L2_EXPOSURE_AUTO fails...
+//      if (v4l2_ioctl(device, VIDIOC_S_CTRL, &c) != 0) {
+//        cout << "Failed to set... " << strerror(errno) << endl;
+//      }
+//      cout << "exposure: " << m_exposure << endl;
+//      v4l2_set_control(device, V4L2_CID_EXPOSURE_ABSOLUTE, m_exposure*6);
+//    }
+//    if (m_gain >= 0) {
+//      cout << "gain: " << m_gain << endl;
+//      v4l2_set_control(device, V4L2_CID_GAIN, m_gain*256);
+//    }
+//    if (m_brightness >= 0) {
+//      cout << "brightness: " << m_brightness << endl;
+//      v4l2_set_control(device, V4L2_CID_BRIGHTNESS, m_brightness*256);
+//    }
+//    v4l2_close(device);
+//#endif 
+//    
+//
+//    // find and open a USB camera (built in laptop camera, web cam etc)
+//    m_cap = cv::VideoCapture(m_deviceId);
+//    //m_cap = cv::VideoCapture("/Usagers/pearl790131/masterThesis/git/marker_stuff/InsideOutTracking/2ndTryWhiteBorders/GOPR0085.MP4");
+//    //m_cap = cv::VideoCapture("/Users/pearl790131/masterThesis/git/marker_stuff/GoProVideo/GOPR8802.MP4");
+//        if(!m_cap.isOpened()) {
+//      cerr << "ERROR: Can't find video device " << m_deviceId << "\n";
+//      exit(1);
+//    }
+//    m_cap.set(CV_CAP_PROP_FRAME_WIDTH, m_width);
+//    m_cap.set(CV_CAP_PROP_FRAME_HEIGHT, m_height);
+//    cout << "Camera successfully opened (ignore error messages above...)" << endl;
+//    cout << "Actual resolution: "
+//         << m_cap.get(CV_CAP_PROP_FRAME_WIDTH) << "x"
+//         << m_cap.get(CV_CAP_PROP_FRAME_HEIGHT) << endl;
+//
+//  }
 
   void print_detection(AprilTags::TagDetection& detection) const {
     cout << "  Id: " << detection.id
@@ -724,7 +840,7 @@ int main(int argc, char* argv[]) {
     cout << "Processing video" << endl;
 
     // setup image source, window for drawing, serial port...
-    demo.setupVideo();
+    demo.setupVideo(argc, argv);
 
     // the actual processing loop where tags are detected and visualized
     demo.loop(argc, argv);
